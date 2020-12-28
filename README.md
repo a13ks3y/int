@@ -1,4 +1,4 @@
-# INT-EXT
+# INT
 In New TAB!!!
 ## Description
 Make all links to opens in a new tab. No exceptions.
