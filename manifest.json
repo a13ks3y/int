@@ -1,0 +1,38 @@
+{
+  "name": "In New Tab",
+  "version": "1.2",
+  "description": "Always open in new tab, no exceptions.",
+  "permissions": [
+    "activeTab"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"],
+      "css": ["contentStyle.css"]
+    }
+  ],
+  "browser_action": {
+    "default_icon": {
+      "16": "images/16x16-icon.png",
+      "24": "images/24x24-icon.png",
+      "32": "images/32x32-icon.png"
+    },
+
+    "default_title": "In New Tab"
+  },
+  "web_accessible_resources": [
+    "images/*"
+  ],
+  "icons": {
+    "16": "images/16x16-icon.png",
+    "32": "images/32x32-icon.png",
+    "64": "images/64x64-icon.png",
+    "128": "images/128x128-icon.png"
+  },
+  "manifest_version": 2
+}
