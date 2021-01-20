@@ -1,4 +1,4 @@
-let isOn = true;
+localStorage.runingState = 'isOn';
 const DATA_TARGET_ATTR_NAME = 'data-old-target-value';
 const AFFECTED_LINK_CLASS_NAME = 'int-ext-link';
 
@@ -26,7 +26,7 @@ function revertAllLinksTargetBlank() {
 
 }
 function main() {
-    if (isOn) {
+    if (localStorage.runingState === 'isOn') {
         makeAllLinksTargetBlank();
     } else {
         revertAllLinksTargetBlank();
@@ -41,7 +41,7 @@ mutationObserver.observe(document.body, { childList: true, subtree: true });
 
 chrome.runtime.onMessage.addListener(function (msg) {
     if (msg === 'toggleIntExt') {
-        isOn = !isOn;
+        localStorage.runingState = localStorage.runingState === 'isOn' ? 'isOff' : 'isOn';
         main();
     }
 });
